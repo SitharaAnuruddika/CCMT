@@ -4,6 +4,10 @@
     Author     : pasin_000
 --%>
 
+<%@page import="com.itpm.model.InheritanceMethod"%>
+<%@page import="com.itpm.model.SizeVariableMetod"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.itpm.controller.InheritanceController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,6 +26,7 @@
                         <div class="card" style="width: 1000px; height: 460px;" >
                             <center><div class="card-heading p-2"><h4>Weights related to the inheritance factor</h4></div></center>
                             <div class="card-body" >
+                                <form action="UpdateInheritance" method="POST"
                                 <div class="table-responsive-sm" >
                                     <center><table class="table table-bordered" style="width: 900px;">
                                         <thead>
@@ -31,38 +36,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <%
+                                                InheritanceController inheritance = new InheritanceController();
+                                                ArrayList<InheritanceMethod> accounts = inheritance.getinheritance();
+                                                for (InheritanceMethod account : accounts) {
+                                            %>
                                             <tr>
-                                                <td>A class with no inheritance (direct or indirect) </td>
-                                                <td><center><input type="text" id="inheriting_A" name="inheriting_A" style="width: 50px; text-align: center;"></center></td>
+                                                <td id="lablinherit<%=account.getID()%>"><%=account.getInherited_Pattern()%></td>
+                                                <td><center><input type="text" id="<%=account.getID()%>" name="<%=account.getID()%>" style="width: 50px; text-align: center;" value="<%=account.getWeight()%>"></center></td>
                                             </tr>
                                             
-                                            <tr>
-                                                <td>A class inheriting (directly or indirectly) from one user-defined class </td>
-                                                <td><center><input type="text" id="inheriting_B" name="inheriting_B" style="width: 50px; text-align: center;"></center></td>
-                                            </tr>
+                                            <%
+                                            }
+                                        %>
                                             
-                                            
-                                            <tr>
-                                                <td>A class inheriting (directly or indirectly) from two user-defined classes</td>
-                                                <td><center><input type="text" id="inheriting_C" name="inheriting_C" style="width: 50px; text-align: center;"></center></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>A class inheriting (directly or indirectly) from three user-defined classes </td>
-                                                <td><center><input type="text" id="inheriting_D" name="inheriting_D" style="width: 50px; text-align: center;"></center></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>A class inheriting (directly or indirectly) from more than three user-defined classes</td>
-                                                <td><center><input type="text" id="inheriting_E" name="inheriting_E" style="width: 50px; text-align: center;"></center></td>
-                                            </tr>
-                                            
+                                                                                      
 
                                         </tbody>
                                     </table></center>
                                 </div>
 
                                <button class="buttonsave button5" >Save</button>
+                                    </form>
                             </div>
                         </div>
 

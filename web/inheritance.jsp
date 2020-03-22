@@ -4,6 +4,9 @@
     Author     : pasin_000
 --%>
 
+<%@page import="com.itpm.model.InheritanceDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.itpm.controller.InheritanceController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -67,103 +70,34 @@
                                                 <th scope="col">Count</th>
                                                 <th scope="col">Class Name</th>
                                                 <th scope="col">No of direct inheritance</th>
-                                                <th scope="col">No of direct inheritance</th>
+                                                <th scope="col">No of indirect inheritance</th>
                                                 <th scope="col">Total inheritance</th>
                                                 <th scope="col">Ci</th>
                                                 
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <%
+                                                InheritanceController inheritance = new InheritanceController();
+                                                String filename=session.getAttribute("filename").toString();
+                                                ArrayList<InheritanceDTO> inheritanceList = inheritance.measureInheritance(filename);
+                                                int lineNo=0;
+                                                for (InheritanceDTO I : inheritanceList) {
+                                                    lineNo++;
+                                            %>
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Pattern  </td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                
+                                                <th scope="row"><%=lineNo%></th>
+                                                <td><%=I.getClassName()%></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>            
                                             </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">6</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">7</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">8</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">9</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">10</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                            
+                                        <%
+                                            }
+                                        %>
+                                           
 
                                         </tbody>
                                     </table>
