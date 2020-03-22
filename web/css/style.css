@@ -1,0 +1,92 @@
+* , html ,body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.dropdown.no-arrow .dropdown-toggle::after {
+    display: none;
+}
+
+.img-profile {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.navbar-brand{
+    font-size: 20px;
+}
+
+.nav-item{
+    margin: 0 20px 0 20px;
+}
+
+.bg-gradient-1 {
+    background-color: #4e73df;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    background-size: cover;
+    border: none;
+    border-radius: 25px;
+    width: 250px;
+  }
+
+  .bg-gradient-2 {
+    background-color: #4e73df;
+    background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+    background-size: cover;
+    border: none;
+    border-radius: 25px;
+    width: 250px;
+  }
+
+  .bg-gradient-3 {
+    background-color: #4e73df;
+    background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
+    background-size: cover;
+    border: none;
+    border-radius: 25px;
+    width: 250px;
+  }
+
+  .bg-gradient-4 {
+    background-color: #4e73df;
+    background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
+    background-size: cover;
+    border: none;
+    border-radius: 25px;
+    width: 250px;
+  }
+
+  .mainNavigationPhoto{
+      height: 60px;
+      width: 60px;
+      float: center;
+  }
+
+  .card-title{
+      color: white;
+  }
+
+.form-signin{
+	width : 500px;
+	height : 500px;
+	text-align: center;
+	margin-left: auto;
+	margin-right:auto;
+	margin-top:100px;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
