@@ -24,7 +24,7 @@ public final class DBConnectionUtil {
 
         String database = "ITPM";
         String Username = "root";
-        String password = "sithara@123";
+        String password = "";
         return getConnection(database, Username, password);
     }
 
@@ -33,7 +33,7 @@ public final class DBConnectionUtil {
         if (conn == null || conn.isClosed()) {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/" + databaseName + "?user=" + UserName + "&password=" + password);
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + databaseName + "?user=" + UserName + "&password=" + password);
             } catch (Exception e) {
                 e.printStackTrace();
             }
