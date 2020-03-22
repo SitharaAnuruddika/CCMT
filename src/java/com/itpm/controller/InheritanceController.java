@@ -146,6 +146,7 @@ public class InheritanceController {
                    inherit.setClassName(words[i+1]);
                    inheritanceList.add(inherit);
                    System.out.println(word);
+                   System.out.println(word);
                  }
                  else{
                  
