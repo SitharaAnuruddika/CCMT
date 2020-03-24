@@ -29,6 +29,7 @@ public class InheritanceController {
     private static Connection connection;
     private static PreparedStatement ps;
     private static ResultSet rs;
+
     //==================retrieve the Inheritance ===================================
     public static ArrayList<InheritanceMethod> getinheritance() {
 
@@ -74,9 +75,9 @@ public class InheritanceController {
         return list;
 
     }
+
     //==========================Update the inheritance ========================
     public int updateInhertance(ArrayList<InheritanceMethod> inheritance) {
-
 
         int result = 0;
 
@@ -111,7 +112,6 @@ public class InheritanceController {
 
     }
 
-    
 //     =====================================================================================================
 //     =====================================================================================================
     public static ArrayList<InheritanceDTO> measureInheritance(String fileName) throws FileNotFoundException, IOException {
@@ -119,43 +119,52 @@ public class InheritanceController {
 
         FileReader fr = new FileReader("c://ccmt/uploads/" + fileName);
         BufferedReader br = new BufferedReader(fr);
-        ArrayList<InheritanceMethod> alist = new  ArrayList<>();
-        alist=getinheritance();
+        ArrayList<InheritanceMethod> alist = new ArrayList<>();
+        alist = getinheritance();
         String s = null;
-        String[] words=null;
-        String input="class";
-        
-        int count=0;
+        String[] words = null;
+        String input = "class";
+        String[] check = null;
+        int direct = 0;
+        int indirect = 0;
 
-        while((s=br.readLine())!=null)   //Reading Content from the file
+        while ((s = br.readLine()) != null) //Reading Content from the file
         {
-           
-            words=s.split("\\W+");  //Split the word using space
 
-            List<String> abcd  = Arrays.asList(words);
+            words = s.split("\\W+");  //Split the word using space
+
+            List<String> abcd = Arrays.asList(words);
 
             
-            for (String word : words) 
-            {
+            for (String word : words) {
+                int nDI = 0;
+                int i = abcd.indexOf(word);
                 InheritanceDTO inherit = new InheritanceDTO();
-                System.out.println(word);
-                 if (word.equals(input))   //Search for the given word
-                 { 
-                   count++;    //If Present increase the count by one
-                   int i = abcd.indexOf(word);
-                   inherit.setClassName(words[i+1]);
-                   inheritanceList.add(inherit);
-                   System.out.println(word);
-                   System.out.println(word);
-                 }
-                 else{
-                 
-                 }
-                 
+                if (word.equals(input)) //Search for the given word
+                {
+                    for (int j = 0; j < words.length; j++) {
+                        if(words[j].equals("extends")){
+                            nDI++;
+                            if(nDI>=1){
+                                direct = 1;
+                                indirect = nDI-1;
+                            }
+                        }
+                    }
+
+                    inherit.setClassName(words[i + 1]); 
+                    inherit.setDirectInheritance(nDI);
+                    inherit.setIndirectInheritance(direct);
+                    inherit.setTotal(indirect);
+                    inheritanceList.add(inherit);
+                } else {
+
+                }
+
             }
-            
+
         }
-        
+
         br.close();
         fr.close();
         return inheritanceList;
