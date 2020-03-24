@@ -88,7 +88,7 @@
                                             <tr>
                                                 <th scope="row"><%=lineNo%></th>
                                                 <td><%=I.getClassName()%></td>
-                                                <td></td>
+                                                <td><%=I.getDirectInheritance()%></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>            
