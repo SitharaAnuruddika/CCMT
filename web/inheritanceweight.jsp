@@ -55,10 +55,11 @@
                                         </tbody>
                                     </table></center>
                                 </div>
-
-                               <button class="buttonsave button5" >Save</button>
+                                        
+                                        <button class="buttonsave button5" >Save</button>
                                     </form>
                             </div>
+                            <a href="inheritance.jsp"><p>Go Back</p></a>
                         </div>
 
 
